@@ -15,7 +15,7 @@
   <div class="row m-0 p-0">
     <div class="searchBar">
       <input class="inputBar" id="selectedCity" placeholder="search">
-      <button class="magHolder" id="saveBtn"> <img src="media/magGlass.png"> </button>
+      <button class="magHolder" id="searchBtn"> <img src="media/magGlass.png"> </button>
     </div>
   </div>
   <!-- END OF SEARCH BAR -->
@@ -35,8 +35,7 @@
         <h2 class="currentDay" id="currentDate"></h2>
 
         <!-- EDIT THIS /////////////////////////////// -->
-        <img src="media/clearHeart.png">
-
+        <button id="saveBtn" class="saveBtn"><img src="media/clearHeart.png"></button>
       </div>
 
       <div class="currentWeather">
@@ -121,10 +120,11 @@
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">YOUR FAVORITE CITIES</h5>
+      <h5 class="offcanvas-title mt-5" id="offcanvasWithBothOptionsLabel">YOUR FAVORITE CITIES</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
+      <button class="favoriteCityBar mb-5 d-flex justify-content-between"><h2 class="ms-3 mt-2">Favorite Places</h2> <img class="heartIcon mt-1" src="media/fullHEart.png"></button>
     </div>
   </div>
   </div>

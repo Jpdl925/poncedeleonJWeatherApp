@@ -15,7 +15,7 @@ body {
 .searchBar {
     display: flex;
     margin-top: 1%;
-    margin-left: 60%;
+    margin-left: 57%;
     width: max-content;
     height: 70px;
     right: 200px;
@@ -83,6 +83,10 @@ h2.todayTxt {
     font-size: 40px;
     font-weight: 400;
 }
+.saveBtn{
+    background-color: transparent;
+    border: none;
+}
 
 h2.currentDay {
     font-family: "Sorts Mill Goudy";
@@ -113,8 +117,6 @@ h2.currentDay {
     text-align: center;
     font-weight: 700;
     font-size: 40px;
-}
-.currentWeather img{
 }
 
 .topRow{
@@ -183,7 +185,26 @@ h2.currentDay {
     border-radius: 20px;
     border: 1px black solid;
 }
-
+.favoriteCityBar{
+    display: flex;
+    align-items: center;
+    font-family:orbitron;
+    font-weight:900;
+    font-size:25px;
+    width: 100%;
+    height:10%;
+    background-color: hsl(0, 0%, 100%, .9);
+    border-radius: 20px;
+    border: 1px black solid;
+}
+.favoriteCityBar h2{
+    font-size:20px;
+    font-weight:900;
+    font-family:orbitron;
+}
+.heartIcon{
+    width: 15%;
+}
 
 .offcanvas{
     background: hsla(195, 100%, 86%, 1);

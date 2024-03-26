@@ -30,7 +30,7 @@ let day3Temperature = document.getElementById("day3Temperature");
 let day4Temperature = document.getElementById("day4Temperature");
 let day5Temperature = document.getElementById("day5Temperature");
 
-let saveBtn = document.getElementById("saveBtn").addEventListener("click", function(){
+let searchBtn = document.getElementById("searchBtn").addEventListener("click", function(){
     // Grabbing text from user search to put into function for getting weather
     let userCity = selectedCity.value;
     getWeather(userCity);
@@ -38,6 +38,13 @@ let saveBtn = document.getElementById("saveBtn").addEventListener("click", funct
     cityName.innerText = selectedCity.value;
 });
 
+let saveBtn = document.getElementById("saveBtn").addEventListener("click", function(){
+    localStorage.setItem(selectedCity.value);
+    console.log(localStorage);
+    updateFaves();
+});
+
+let favCities = [];
 let savedWeather = [];
 let defaultCity = "Stockton";
 
