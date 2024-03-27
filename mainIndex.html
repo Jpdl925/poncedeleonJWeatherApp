@@ -35,7 +35,7 @@
         <h2 class="currentDay" id="currentDate"></h2>
 
         <!-- EDIT THIS /////////////////////////////// -->
-        <button id="saveBtn" class="saveBtn"><img src="media/clearHeart.png"></button>
+        <button id="saveBtn" class="saveBtn"><img id="heartIcon" src="media/clearHeart.png"></button>
       </div>
 
       <div class="currentWeather">
@@ -114,18 +114,31 @@
 
   <!-- FAVORITES BAR -->
   <div class="favoritesPos d-flex justify-content-center">
+    <!-- FAVORITES BUTTON ON BOTTOM -->
     <button class="favoritesBar mt-4 mb-5 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
     aria-controls="offcanvasWithBothOptions"><h2 class="ms-3">Favorite Places</h2> <img class="starIcon me-3" src="media/star.png"></button>
+    
 
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
+      <!-- FAVORITES TITLE -->
       <h5 class="offcanvas-title mt-5" id="offcanvasWithBothOptionsLabel">YOUR FAVORITE CITIES</h5>
+      <!-- CLOSE BUTTON -->
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <button class="favoriteCityBar mb-5 d-flex justify-content-between"><h2 class="ms-3 mt-2">Favorite Places</h2> <img class="heartIcon mt-1" src="media/fullHEart.png"></button>
+
+    <!-- FAVORITES TAB LOCATION -->
+    <div class="offcanvas-body" id="insertFavorites">
+
+      <!-- HOW FAVORITES WILL APPEAR IN FAVORITES TAB -->
+      <!-- <button class="favoriteCityBar mb-5 d-flex justify-content-between">
+        <h2 class="ms-3 mt-2">Favorite Places</h2> 
+        <img class="heartIcon mt-1" src="media/fullHEart.png">
+      </button> -->
+
     </div>
+
   </div>
   </div>
   <!-- END OF FAVORITES BAR -->
