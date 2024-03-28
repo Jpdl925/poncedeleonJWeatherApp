@@ -12,6 +12,7 @@ let weatherDesc = document.getElementById("weatherDesc");
 let weatherIcon = document.getElementById("weatherIcon");
 let heartIcon = document.getElementById("heartIcon");
 let insertFavorites = document.getElementById("insertFavorites");
+let currentWeatherIcon = document.getElementById("currentWeatherIcon");
 
 
 
@@ -30,6 +31,13 @@ let day2Date = document.getElementById("day2Date");
 let day3Date = document.getElementById("day3Date");
 let day4Date = document.getElementById("day4Date");
 let day5Date = document.getElementById("day5Date");
+
+let dayIcon = [];
+dayIcon[1] = document.getElementById("dayIcon1");
+dayIcon[2] = document.getElementById("dayIcon2");
+dayIcon[3] = document.getElementById("dayIcon3");
+dayIcon[4] = document.getElementById("dayIcon4");
+dayIcon[5] = document.getElementById("dayIcon5");
 
 let day1Temperature = document.getElementById("day1Temperature");
 let day2Temperature = document.getElementById("day2Temperature");
@@ -130,6 +138,7 @@ if (favData && favData != null) {
         newBtn.appendChild(newImgTag);
         insertFavorites.appendChild(newBtn);
         h2Tag.addEventListener("click", async function () {
+            cityName.innerText = h2Tag.innerText;
             getWeather(h2Tag.innerText);
             let splitTxt = h2Tag.innerText.split(",");
             console.log(`THIS IS THE SLICE ${splitTxt}`);
@@ -246,21 +255,51 @@ async function getWeather(cityName) {
     // Current temp for the day
     let curTemp = Math.floor(weatherApi.list["0"].main.temp);
     currentTemp.innerText = curTemp + "°";
+    // Changing weather pic for current temp to match with description or temp gauge
+    if (weatherDes.includes("rain")){
+        currentWeatherIcon.src = "media/rain.png";
+    }
+    else if (weatherDes.includes("Clear")){
+        currentWeatherIcon.src = "media/sun.png";
+    }
+    else if (curTemp <= 65) {
+        currentWeatherIcon.src = "media/cloudy.png";
+    }
+    else if(curTemp > 65 && curTemp <=75 ){
+        currentWeatherIcon.src = "media/sun.png";
+    }
+    else if(curTemp > 75 ){
+        currentWeatherIcon.src = "media/sunny.png";
+    };
     // Current humidity for the day
     let humidity = weatherApi.list["0"].main.humidity;
     humid.innerText = humidity + "%";
 
+    let dayTemp = [];
     // FUTURE DAY TEMPS, day 1 - 5
-    let day1Temp = Math.floor(weatherApi.list["6"].main.temp);
-    day1Temperature.innerText = day1Temp + "°";
-    let day2Temp = Math.floor(weatherApi.list["14"].main.temp);
-    day2Temperature.innerText = day2Temp + "°";
-    let day3Temp = Math.floor(weatherApi.list["23"].main.temp);
-    day3Temperature.innerText = day3Temp + "°";
-    let day4Temp = Math.floor(weatherApi.list["31"].main.temp);
-    day4Temperature.innerText = day4Temp + "°";
-    let day5Temp = Math.floor(weatherApi.list["39"].main.temp);
-    day5Temperature.innerText = day5Temp + "°";
+    dayTemp[1] = Math.floor(weatherApi.list["6"].main.temp);
+    day1Temperature.innerText = dayTemp[1] + "°";
+    dayTemp[2] = Math.floor(weatherApi.list["14"].main.temp);
+    day2Temperature.innerText = dayTemp[2] + "°";
+    dayTemp[3] = Math.floor(weatherApi.list["23"].main.temp);
+    day3Temperature.innerText = dayTemp[3] + "°";
+    dayTemp[4] = Math.floor(weatherApi.list["31"].main.temp);
+    day4Temperature.innerText = dayTemp[4] + "°";
+    dayTemp[5] = Math.floor(weatherApi.list["39"].main.temp);
+    day5Temperature.innerText = dayTemp[5] + "°";
+
+    // FOR LOOP going through all of the temps on the lower side (5 day forecast) and iterating through each name for the temp and tempicon, then changing based on the temp given
+    for (let i = 1 ; i <= 5 ; i++){
+        if (dayTemp[i] <= 65) {
+            dayIcon[i].src = "media/cloudy.png";
+        }
+        else if(dayTemp[i] > 65 && dayTemp[i] <=75 ){
+            dayIcon[i].src = "media/sun.png";
+        }
+        else if(dayTemp[i] > 75 ){
+            dayIcon[i].src = "media/sunny.png";
+        };
+    };
 
 
 
