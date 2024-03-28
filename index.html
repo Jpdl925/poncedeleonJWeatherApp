@@ -1,47 +1,148 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Weather</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
 
-    <input class="ms-5" id="selectedCity">
-    <button id="saveBtn">Save</button>
-    <h1 class="ms-5" id="cityName">cityName</h1>
-    <h3 class="ms-5" id="currentDayOfWeek">currentDayOfWeek</h3>
-    <h3 class="ms-5" id="currentMonth">currentMonth</h3>
-    <h3 class="ms-5" id="currentDay">currentDay</h3>
-    <h3 class="ms-5" id="currentTemp">currentTemp</h3>
-    <h3 class="ms-5" id="feels">Feels like</h3>
-    <h3 class="ms-5" id="weatherDescription">weatherDesc</h3>
-    <img class="ms-5 ps-5" id="weatherIcon">
-    <h2 class="ms-5" id="topTemp">topTemp</h2>
-    <h2 class="ms-5" id="lowTemp">lowTemp</h2>
-    <h2 class="ms-5" id="humid">humidity</h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Weather</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/styles/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- SEARCH BAR -->
+  <div class="row m-0 p-0">
+    <div class="searchBar">
+      <input class="inputBar" id="selectedCity" placeholder="search">
+      <button class="magHolder" id="searchBtn"> <img src="media/magGlass.png"> </button>
+    </div>
+  </div>
+  <!-- END OF SEARCH BAR -->
+
+  <!-- CITY NAME -->
+  <div class="row m-0 p-0">
+    <h2 class="cityName" id="cityName">Stockton</h2>
+  </div>
+  <!-- END OF CITY NAME -->
+
+  <!-- TOP ROW CONTAINING TWO BOXES -->
+  <div class="top row m-0 p-0 d-flex justify-content-center">
+
+    <div class="borderBox">
+      <div class="mainTopTxt">
+        <h2 class="todayTxt">TODAY</h2>
+        <h2 class="currentDay" id="currentDate"></h2>
+
+        <button id="saveBtn" class="saveBtn"><img id="heartIcon" src="media/clearHeart.png"></button>
+      </div>
+
+      <div class="currentWeather">
+        <div class="tempSide">
+          <h1 class="currentTemp" id="currentTemp"></h1>
+          <h3 class="weatherDesc" id="weatherDescription"></h3>
+        </div>
+
+        <!-- EDIT THIS /////////////////////////////// -->
+        <img src="/media/sunny.png">
+        
+      </div>
+    </div>
+
+    <div class="borderBox">
+      <div class="topRow">
+        <div class="maxTemp">
+          <h3>Max. Temperature</h3>
+          <h2 id="topTemp"></h2>
+        </div>
+        <div class="minTemp">
+          <h3>Min. Temperature</h3>
+          <h2 id="lowTemp"></h2>
+        </div>
+      </div>
+
+      <div class="bottomRow">
+        <div class="feelsLike">
+          <h3>Feels Like</h3>
+          <h2 id="feels"></h2>
+        </div>
+        <div class="humid">
+          <h3>Humidity</h3>
+          <h2 id="humid"></h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END OF TOP ROW CONTAINING TWO BOXES -->
+
+  <!-- BOTTOM ROW CONTAINING 5 DAY FORECAST -->
+  <div class="bottom row m-0 p-0 d-flex justify-content-evenly">
+    <div class="borderBox">
+      <h2 class="weekDay" id="day1Week"></h2>
+      <h2 class="monthDay" id="day1Date"></h2>
+      <img class="futureIcon" src="media/sun.png">
+      <h1 class="futureTemp" id="day1Temperature"></h1>
+    </div>
+    <div class="borderBox">
+      <h2 class="weekDay" id="day2Week"></h2>
+      <h2 class="monthDay" id="day2Date"></h2>
+      <img class="futureIcon" src="media/sun.png">
+      <h1 class="futureTemp" id="day2Temperature"></h1>
+    </div>
+    <div class="borderBox">
+      <h2 class="weekDay" id="day3Week"></h2>
+      <h2 class="monthDay" id="day3Date"></h2>
+      <img class="futureIcon" src="media/sun.png">
+      <h1 class="futureTemp" id="day3Temperature"></h1>
+    </div>
+    <div class="borderBox">
+      <h2 class="weekDay" id="day4Week"></h2>
+      <h2 class="monthDay" id="day4Date"></h2>
+      <img class="futureIcon" src="media/sun.png">
+      <h1 class="futureTemp" id="day4Temperature"></h1>
+    </div>
+    <div class="borderBox">
+      <h2 class="weekDay" id="day5Week"></h2>
+      <h2 class="monthDay" id="day5Date"></h2>
+      <img class="futureIcon" src="media/sun.png">
+      <h1 class="futureTemp" id="day5Temperature"></h1>
+    </div>
+  </div>
+  <!-- END OF BOTTOM ROW CONTAINING 5 DAY FORECAST -->
+
+  <!-- FAVORITES BAR -->
+  <div class="favoritesPos d-flex justify-content-center">
+    <!-- FAVORITES BUTTON ON BOTTOM -->
+    <button class="favoritesBar mt-4 mb-5 d-flex justify-content-between" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+    aria-controls="offcanvasWithBothOptions"><h2 class="ms-3">Favorite Places</h2> <img class="starIcon me-3" src="media/star.png"></button>
+    
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <!-- FAVORITES TITLE -->
+      <h5 class="offcanvas-title mt-5" id="offcanvasWithBothOptionsLabel">YOUR FAVORITE CITIES</h5>
+      <!-- CLOSE BUTTON -->
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <!-- FAVORITES TAB LOCATION -->
+    <div class="offcanvas-body" id="insertFavorites">
+
+      <!-- HOW FAVORITES WILL APPEAR IN FAVORITES TAB -->
+      <!-- <button class="favoriteCityBar mb-5 d-flex justify-content-between">
+        <h2 class="ms-3 mt-2">Favorite Places</h2> 
+        <img class="heartIcon mt-1" src="media/fullHEart.png">
+      </button> -->
+
+    </div>
+
+  </div>
+  </div>
+  <!-- END OF FAVORITES BAR -->
 
 
-    <h3 class="ms-5" id="day1Week">Day 1 Weekday</h3>
-    <h3 class="ms-5" id="day1Date">Day 1</h3>
-    <h4 class="ms-5" id="day1Temperature">weather info</h4>
-
-    <h3 class="ms-5" id="day2Week">Day 1 Weekday</h3>
-    <h3 class="ms-5" id="day2Date">Day 2</h3>
-    <h4 class="ms-5" id="day2Temperature">weather info</h4>
-
-    <h3 class="ms-5" id="day3Week">Day 1 Weekday</h3>
-    <h3 class="ms-5" id="day3Date">Day 3</h3>
-    <h4 class="ms-5" id="day3Temperature">weather info</h4>
-
-    <h3 class="ms-5" id="day4Week">Day 1 Weekday</h3>
-    <h3 class="ms-5" id="day4Date">Day 4</h3>
-    <h4 class="ms-5" id="day4Temperature">weather info</h4>
-
-    <h3 class="ms-5" id="day5Week">Day 5 Weekday</h3>
-    <h3 class="ms-5" id="day5Date">Day 5</h3>
-    <h4 class="ms-5" id="day5Temperature">weather info</h4>
 
 
 
@@ -54,6 +155,12 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+
+  <script src="/scripts/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

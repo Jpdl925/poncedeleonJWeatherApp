@@ -212,6 +212,7 @@ async function getWeather(cityName) {
     day5Week.innerText = weekDays[(dayofWeek + 5) % weekDays.length];
 
     // Future dates day
+    // Inspiration from NEOS CODE for ending of days
     day1Date.innerText = `${curMonth} ${(curDay + 1)}`;
     day2Date.innerText = `${curMonth} ${(curDay + 2)}`;
     day3Date.innerText = `${curMonth} ${(curDay + 3)}`;
